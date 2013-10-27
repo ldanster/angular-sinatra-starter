@@ -1,0 +1,107 @@
+#main-feature .panel {
+  border: none;
+  position: relative;
+  padding: 0;
+  min-height: 210px;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  border-right: solid 10px whitesmoke;
+}
+
+
+#main-feature .panel h1 , #main-feature .panel h1 a {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding-left: 0.5em;
+  color: rgba(255, 255, 255, 0.8);
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+#main-feature .panel img {
+  width: 100%;
+  height: 210px;
+}
+
+#main-feature .panel span {
+  text-align: right;
+  position: absolute;
+  display: block;
+  bottom: 0;
+  right: 0;
+  padding-left: 10px;
+  padding-right: 10px;
+  color: rgba(255, 255, 255, 0.8);
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.reveal-modal {
+  padding: 0;
+  background-color: whitesmoke;
+}
+.modal-content {
+  padding: 2em;
+  background-color: whitesmoke;
+}
+.reveal-modal h2 {
+  padding-left: 0.5em;
+  color: rgba(255, 255, 255, 0.8);
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+
+.reveal-modal .close-reveal-modal {
+  position: static;
+  display: block;
+  float: right;
+  font-size: 0.8em;
+  margin-top: -0.2em;
+  padding-right: 0.1em;
+  color: #A00;
+}
+
+.event-data li {
+  list-style: none;
+}
+.event-data li strong {
+  display: block;
+}
+
+.event-data li span {
+
+}
+
+header {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+html, body {
+  height: 100%;
+}
+
+footer, .push {
+  position: fixed;
+  width: 100%;
+  height: 30px;
+
+  bottom: 0;
+}
+
+
+.button {
+  background-color: #A8181B;
+  border-color: #7A1C16;
+}
+
+.button:hover {
+  background-color: #D61F22;
+}
+
+.button span {
+  display: inline-block;
+  margin-top: 1px;
+  margin-left: -5px;
+  margin-right: 5px;
+}

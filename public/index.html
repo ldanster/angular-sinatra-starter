@@ -1,19 +1,77 @@
 <html ng-app="starter">
 <head>
+  <link rel="stylesheet" href="/css/foundation.css">
+  <link rel="stylesheet" href="/css/foundation-glyphicons.css">
+  <link rel="stylesheet" href="/css/timeline.css">
+  <link rel="stylesheet" href="/css/timeline-custom.css">
+  <link rel="stylesheet" href="/css/application.css">
   <script type="text/javascript" src="/javascript/angular/angular.js"></script>
+  <script type="text/javascript" src="/javascript/angular/angular-route.js"></script>
   <script type="text/javascript" src="/javascript/controllers.js"></script>
 </head>
+
 <body ng-controller="PeopleCtrl">
+
+  <header>
+    <div class="container">
+      <div class="row">
+        <div class="large-2 columns">
+          <img src="/img/chris_hani_logo_small.png" />
+        </div>
+      </div>
+    </div>
+  </header>
+
   <div ng-show="userData">
     You are logged in as {{ userData.user }}
   </div>
-  <div>
-    Who are you? <input ng-model="me"/> <button ng-click="login()">Login</button>
-  </div>
+  
   <div>
     <ul>
-      <li ng-repeat="person in people">{{ person }}</li>
+      <li ng-repeat="person in people">{{ person.name }}-{{person.Age}}</li>
     </ul>
   </div>
+
+
+
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="large-4 columns large-centered">
+          <ul class="button-group">
+            <li><a href="/timeline" class="small button"><span class="gicon-list gicon-white"></span>Timeline</a></li>
+            <li><a href="/events" class="small button"><span class="gicon-glass gicon-white"></span>Events</a></li>
+            <li><a href="#" class="small button"><span class="gicon-search gicon-white"></span>Search</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+  <script src="/javascript/vendor/jquery.js"></script>
+  <script src="/javascript/vendor/jquery.browser.min.js"></script>
+  <script src="/javascript/foundation.min.js"></script>
+
+  <script src="/javascript/timeline-min.js"></script>
+  <script src="/javascript/application.js"></script>
+  <!--
+  <script src="js/foundation/foundation.js"></script>
+  <script src="js/foundation/foundation.alerts.js"></script>
+  <script src="js/foundation/foundation.clearing.js"></script>
+  <script src="js/foundation/foundation.cookie.js"></script>
+  <script src="js/foundation/foundation.dropdown.js"></script>
+  <script src="js/foundation/foundation.forms.js"></script>
+  <script src="js/foundation/foundation.joyride.js"></script>
+  <script src="js/foundation/foundation.magellan.js"></script>
+  <script src="js/foundation/foundation.orbit.js"></script>
+  <script src="js/foundation/foundation.reveal.js"></script>
+  <script src="js/foundation/foundation.section.js"></script>
+  <script src="js/foundation/foundation.tooltips.js"></script>
+  <script src="js/foundation/foundation.topbar.js"></script>
+  <script src="js/foundation/foundation.interchange.js"></script>
+  <script src="js/foundation/foundation.placeholder.js"></script>
+  <script src="js/foundation/foundation.abide.js"></script>
+  -->
 </body>
 </html>
