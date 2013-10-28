@@ -1,0 +1,12 @@
+
+<ul id="main-feature" data-orbit>
+  <li class="container" ng-repeat="eventContainer in eventsContainer">
+    <div class="row">
+      <div class="large-6 columns panel" ng-repeat="event in eventContainer">
+        <h1>{{event.title}}</h1>
+        <span>{{event.time}}</span>
+      </div>
+    </div>
+  </li>
+
+</ul>

@@ -1,16 +1,13 @@
-<html ng-app="starter">
+<html ng-app="chiApp">
 <head>
   <link rel="stylesheet" href="/css/foundation.css">
   <link rel="stylesheet" href="/css/foundation-glyphicons.css">
   <link rel="stylesheet" href="/css/timeline.css">
   <link rel="stylesheet" href="/css/timeline-custom.css">
   <link rel="stylesheet" href="/css/application.css">
-  <script type="text/javascript" src="/javascript/angular/angular.js"></script>
-  <script type="text/javascript" src="/javascript/angular/angular-route.js"></script>
-  <script type="text/javascript" src="/javascript/controllers.js"></script>
 </head>
 
-<body ng-controller="PeopleCtrl">
+<body>
 
   <header>
     <div class="container">
@@ -22,17 +19,7 @@
     </div>
   </header>
 
-  <div ng-show="userData">
-    You are logged in as {{ userData.user }}
-  </div>
-  
-  <div>
-    <ul>
-      <li ng-repeat="person in people">{{ person.name }}-{{person.Age}}</li>
-    </ul>
-  </div>
-
-
+  <div ng-view></div>
 
   <footer>
     <div class="container">
@@ -48,30 +35,22 @@
     </div>
   </footer>
 
-
+  <!-- jQuery -->
   <script src="/javascript/vendor/jquery.js"></script>
   <script src="/javascript/vendor/jquery.browser.min.js"></script>
+
+  <!-- Zurb Foundation -->
   <script src="/javascript/foundation.min.js"></script>
 
-  <script src="/javascript/timeline-min.js"></script>
+  <!-- Angular -->
+  <script type="text/javascript" src="/javascript/angular/angular.js"></script>
+  <script type="text/javascript" src="/javascript/angular/angular-animate.js"></script>
+  <script type="text/javascript" src="/javascript/angular/angular-route.js"></script>
+  <script type="text/javascript" src="/javascript/controllers.js"></script>
+
+  <!-- Timeline js -->
+  <script src="/javascript/timeline.js"></script> 
+
   <script src="/javascript/application.js"></script>
-  <!--
-  <script src="js/foundation/foundation.js"></script>
-  <script src="js/foundation/foundation.alerts.js"></script>
-  <script src="js/foundation/foundation.clearing.js"></script>
-  <script src="js/foundation/foundation.cookie.js"></script>
-  <script src="js/foundation/foundation.dropdown.js"></script>
-  <script src="js/foundation/foundation.forms.js"></script>
-  <script src="js/foundation/foundation.joyride.js"></script>
-  <script src="js/foundation/foundation.magellan.js"></script>
-  <script src="js/foundation/foundation.orbit.js"></script>
-  <script src="js/foundation/foundation.reveal.js"></script>
-  <script src="js/foundation/foundation.section.js"></script>
-  <script src="js/foundation/foundation.tooltips.js"></script>
-  <script src="js/foundation/foundation.topbar.js"></script>
-  <script src="js/foundation/foundation.interchange.js"></script>
-  <script src="js/foundation/foundation.placeholder.js"></script>
-  <script src="js/foundation/foundation.abide.js"></script>
-  -->
 </body>
 </html>
