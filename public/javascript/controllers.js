@@ -23,7 +23,6 @@ angular.module('chiApp', ['ngRoute'])
       var container;
       var modalId = 0;  
       for (i=0; i < data.events.length; i++) {
-        console.log(i);
         if ( i % 4 == 0) {
           container = [];
           containerList.push(container);
