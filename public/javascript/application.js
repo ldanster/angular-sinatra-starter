@@ -1,3 +1,4 @@
+
 $(document).foundation(
   'orbit' , {
     animation: 'fade',
@@ -56,5 +57,10 @@ $(document).foundation(
   }
 });
 
+$scope.init = function() {
+  console.log("lebo");  
+}
 
-//$(document).foundation();
+$(document).ready(function() {
+  console.log("Testing");
+}); 

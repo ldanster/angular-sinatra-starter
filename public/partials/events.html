@@ -3,10 +3,37 @@
   <li class="container" ng-repeat="eventContainer in eventsContainer">
     <div class="row">
       <div class="large-6 columns panel" ng-repeat="event in eventContainer">
-        <h1>{{event.title}}</h1>
-        <span>{{event.time}}</span>
+        <a href="#/events/show#" data-reveal-id="{{event.modalId}}">
+          <div>
+            <h1>{{event.event.title}}</h1>
+            <span>{{event.event.time}}</span>
+          </div>
+        </a>
       </div>
     </div>
   </li>
-
 </ul>
+
+<span ng-repeat="eventContainer in eventsContainer">
+  <span ng-repeat="event in eventContainer">
+    <div id="{{event.modalId}}" class="reveal-modal small">
+      <h2>
+        {{event.event.title}}
+        <a class="close-reveal-modal">&#215;</a>
+      </h2>
+      <div class="modal-content row">
+        <div class="large-8 columns">
+          {{event.event.title}}
+        </div>
+        <div class="large-4 columns">
+          <ul class="event-data">
+            <li>
+              <strong>Date</strong>
+              <span>{{event.event.title}}</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </span>
+</span>
