@@ -1,3 +1,4 @@
+
 angular.module('chiApp', ['ngRoute'])
 
 .config(['$routeProvider', function($routeProvider) {
@@ -9,6 +10,10 @@ angular.module('chiApp', ['ngRoute'])
   .when('/timeline/show', {
     templateUrl: 'partials/timeline.html',
     controller: 'timelineController'
+  })
+  .when('/video/show', {
+    templateUrl: 'partials/video.html',
+    controller: 'videoController'
   })
   .otherwise({
     redirectTo: 'partials/error.html'
@@ -35,7 +40,7 @@ angular.module('chiApp', ['ngRoute'])
       $scope.eventsContainer = containerList;
 
       setTimeout(function() {
-        initEventController();
+        $(document).foundation();
       }, 1);
     });
   });
@@ -47,13 +52,19 @@ angular.module('chiApp', ['ngRoute'])
     .success(function(data) {
       console.log(data);
       var timeline = new VMM.Timeline();
-      var source = angular.toJson(data.timeline);
+
+      var source = angular.toJson(data);
       console.log(source);
       timeline.init(source);
     });
   })
+}])
+
+.controller('videoController', ['$scope', '$http', function($scope, $http) {
+  $http.get('/video/get', {'headers' : {'Accept' : 'application/json'}})
+  .success(function(data) {
+    console.log(data.videos);
+    $scope.videos = data.videos;
+  });
 }]);
 
-function initEventController() {
-  $(document).foundation();
-}

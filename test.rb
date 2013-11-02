@@ -1,6 +1,8 @@
 require "sinatra"
 require "json"
 
+# videos = Array.new
+
 get '/people' do
   peeps = { people: [ 
     {"name" => "Lebohang", "Age" => 24},
@@ -43,7 +45,7 @@ get '/timeline/get' do
           headline: "Sinatra on the go",
           text: "On and on we go",
           asset: {
-            media: "http://vimeo.com/22439234",
+            media: "",
             credit: "",
             caption: ""
           }
@@ -55,8 +57,29 @@ get '/timeline/get' do
   timeline.to_json
 end
 
+get '/video/get' do 
+  videos = { 
+    videos: [
+      { url: "'http://www.youtube.com/embed/4hNYrcU5Hh4?feature=player_detailpage'" },
+      { url: "'http://www.youtube.com/embed/zoKj7TdJk98?feature=player_detailpage'" }
+    ]
+  }
+  puts videos.to_json
+  videos.to_json
+
+end
+
+post '/video/save' do 
+  # @url = params[:videoUrl]
+  # videos.push getYoutubeVideoIdfromUrl(@url)
+end
+
 get '/' do
-    
+    puts params[]
+end
+
+def getYoutubeVideoIdfromUrl(url)
+  url.split('=')[1]
 end
 
 set :public_folder, Proc.new { File.join(root, "public") }

@@ -9267,13 +9267,14 @@ if (typeof VMM.Timeline !== 'undefined' && typeof VMM.Timeline.DataObj == 'undef
 					LoadLib.js(raw_data, VMM.Timeline.DataObj.onJSONPLoaded);
 				} else {
 					trace("DATA SOURCE: JSON");
-					var req = "";
-					if (raw_data.indexOf("?") > -1) {
-						req = raw_data + "&callback=onJSONP_Data";
-					} else {
-						req = raw_data + "?callback=onJSONP_Data";
-					}
-					VMM.getJSON(req, VMM.Timeline.DataObj.parseJSON);
+					VMM.Timeline.DataObj.parseJSON(raw_data);
+					// var req = "";
+					// if (raw_data.indexOf("?") > -1) {
+					// 	req = raw_data + "&callback=onJSONP_Data";
+					// } else {
+					// 	req = raw_data + "?callback=onJSONP_Data";
+					// }
+					// VMM.getJSON(req, VMM.Timeline.DataObj.parseJSON);
 				}
 			} else if (type.of(raw_data) == "html") {
 				trace("DATA SOURCE: HTML");
@@ -9390,6 +9391,7 @@ if (typeof VMM.Timeline !== 'undefined' && typeof VMM.Timeline.DataObj == 'undef
 		
 		parseJSON: function(d) {
 			trace("parseJSON");
+			trace(d);
 			if (d.timeline.type == "default") {
 				trace("DATA SOURCE: JSON STANDARD TIMELINE");
 				VMM.fireEvent(global, VMM.Timeline.Config.events.data_ready, d);
