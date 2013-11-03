@@ -3,8 +3,6 @@ require "json"
 require "mongo"
 require File.dirname(__FILE__) + "/models/event"
 
-# videos = Array.new
-
 configure do
   Mongoid.load!('mongoid.yml')
 
@@ -19,17 +17,6 @@ configure do
   #     config.master = Mongo::Connection.from_uri("mongodb://localhost:27017").db('chi')
   #   end
   # end
-end
-
-get '/people' do
-  peeps = { people: [ 
-    {"name" => "Lebohang", "Age" => 24},
-    {"name" => "Andy", "Age" => 34}
-  ]}
-
-  puts peeps
-  puts peeps.to_json
-  peeps.to_json
 end
 
 get '/events' do
