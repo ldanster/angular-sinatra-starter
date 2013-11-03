@@ -7,6 +7,10 @@ angular.module('chiApp', ['ngRoute'])
     templateUrl: 'partials/events.html',
     controller: 'eventsController'
   })
+  .when ('/events/add', { 
+    templateUrl:'partials/addevent.html',
+    controller:'eventsController'
+  })
   .when('/timeline/show', {
     templateUrl: 'partials/timeline.html',
     controller: 'timelineController'
@@ -21,6 +25,11 @@ angular.module('chiApp', ['ngRoute'])
 }])
 
 .controller('eventsController', ['$scope', '$http', function($scope, $http) {
+  $scope.events = []
+  $scope.addEvent = function(ev) {
+    console.log(ev);
+  };
+
   $(document).ready(function() {
     $http.get('/events', { 'headers' : {'Accept' : 'application/json'}})
     .success(function(data) {
@@ -67,4 +76,5 @@ angular.module('chiApp', ['ngRoute'])
     $scope.videos = data.videos;
   });
 }]);
+
 

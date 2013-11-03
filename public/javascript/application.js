@@ -56,11 +56,3 @@ $(document).foundation(
     }
   }
 });
-
-$scope.init = function() {
-  console.log("lebo");  
-}
-
-$(document).ready(function() {
-  console.log("Testing");
-}); 
