@@ -4,6 +4,8 @@ require File.dirname(__FILE__) + "/models/event"
 
 # videos = Array.new
 
+Mongoid.load!("mongoid.yml")
+
 get '/people' do
   peeps = { people: [ 
     {"name" => "Lebohang", "Age" => 24},
@@ -34,13 +36,17 @@ get '/events' do
 end
 
 post '/events/add' do 
-  @post = Post.new
+  puts params
+  @post = Event.new
   @post.name = params[:name]
+  puts @post.name
   @post.description = params[:description]
   @post.address = params[:address]
   @post.date = params[:date]
   @post.time = params[:time]
   @post.imageUrl = params[:imageUrl]
+
+  puts @post
   @post.save
   {status: "Post saved"}.to_json
 end

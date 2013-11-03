@@ -28,6 +28,14 @@ angular.module('chiApp', ['ngRoute'])
   $scope.events = []
   $scope.addEvent = function(ev) {
     console.log(ev);
+    $http({
+      url: '/events/add',
+      method: 'POST',
+      data: 'name='+ev.name+'&description='+ev.description+'&address='+ev.address+'&date='+ev.date+'&time='+ev.time+'&imageUrl='+ev.imageUrl,
+      headers: { 'Content-Type' : 'application/x-www-form-urlencoded'}
+    }).success(function(data) {
+      console.log(data);
+    });
   };
 
   $(document).ready(function() {
