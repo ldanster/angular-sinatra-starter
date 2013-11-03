@@ -1,5 +1,6 @@
 require "sinatra"
 require "json"
+require File.dirname(__FILE__) + "/models/event"
 
 # videos = Array.new
 
@@ -30,6 +31,18 @@ get '/events' do
   }
 
   events.to_json
+end
+
+post '/events/add' do 
+  @post = Post.new
+  @post.name = params[:name]
+  @post.description = params[:description]
+  @post.address = params[:address]
+  @post.date = params[:date]
+  @post.time = params[:time]
+  @post.imageUrl = params[:imageUrl]
+  @post.save
+  {status: "Post saved"}.to_json
 end
 
 get '/timeline/get' do
