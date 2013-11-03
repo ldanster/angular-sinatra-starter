@@ -9,6 +9,8 @@ class Event
   field :date, type:Date
   field :time, type:Time
   field :imageUrl, type:String
+  field :website, type:String
+  field :phoneNumber, type:String
 
 end
 

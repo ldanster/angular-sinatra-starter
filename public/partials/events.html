@@ -4,9 +4,8 @@
     <div class="row">
       <div class="large-6 columns panel" ng-repeat="event in eventContainer">
         <a href="#/events/show#" data-reveal-id="{{event.modalId}}">
-          <a href = "addevents/show#" >
           <div>
-            <h1>{{event.event.title}}</h1>
+            <h1>{{event.event.name}}</h1>
             <span>{{event.event.time}}</span>
           </div>
         </a>
@@ -19,7 +18,7 @@
   <span ng-repeat="event in eventContainer">
     <div id="{{event.modalId}}" class="reveal-modal small">
       <h2>
-        {{event.event.title}}
+        {{event.event.name}}
         <a class="close-reveal-modal">&#215;</a>
       </h2>
       <div class="modal-content row">
@@ -30,7 +29,23 @@
           <ul class="event-data">
             <li>
               <strong>Date</strong>
-              <span>{{event.event.title}}</span>
+              <span>{{event.event.date}}</span>
+            </li>
+            <li>
+              <strong>Time</strong>
+              <span>{{event.event.time}}</span>
+            </li>
+            <li>
+              <strong>Address</strong>
+              <span>{{event.event.address}}</span>
+            </li>
+            <li>
+              <strong>Phone</strong>
+              <span>{{event.event.phone}}</span>
+            </li>
+            <li>
+              <strong>Website</strong>
+              <span>{{event.event.website}}</span>
             </li>
           </ul>
         </div>

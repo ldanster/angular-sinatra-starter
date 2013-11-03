@@ -1,10 +1,25 @@
 require "sinatra"
 require "json"
+require "mongo"
 require File.dirname(__FILE__) + "/models/event"
 
 # videos = Array.new
 
-Mongoid.load!("mongoid.yml")
+configure do
+  Mongoid.load!('mongoid.yml')
+
+  # Mongoid.configure do |config|
+  #   if ENV['MONGOHQ_URL']
+  #     conn = Mongo::Connection.from_uri(ENV['MONGOHQ_URL'])
+  #     uri = URI.parse(ENV['MONGOHQ_URL'])
+
+  #     # problem happens here 
+  #     config.master = conn.db(uri.path.gsub(/^\//, ''))
+  #   else
+  #     config.master = Mongo::Connection.from_uri("mongodb://localhost:27017").db('chi')
+  #   end
+  # end
+end
 
 get '/people' do
   peeps = { people: [ 
@@ -18,36 +33,22 @@ get '/people' do
 end
 
 get '/events' do
-  events = {
-    events: [
-      {"title" => "event no 1", "time" => "12:00PM"},
-      {"title" => "event no 2", "time" => "13:00PM"},
-      {"title" => "event no 3", "time" => "14:00PM"},
-      {"title" => "event no 4", "time" => "15:00PM"},
-      {"title" => "event no 5", "time" => "16:00PM"},
-      {"title" => "event no 6", "time" => "17:00PM"},
-      {"title" => "event no 7", "time" => "18:00PM"},
-      {"title" => "event no 8", "time" => "19:00PM"},
-      {"title" => "event no 9", "time" => "19:00PM"}
-    ]
-  }
-
+  events = Event.all
   events.to_json
 end
 
 post '/events/add' do 
-  puts params
-  @post = Event.new
-  @post.name = params[:name]
-  puts @post.name
-  @post.description = params[:description]
-  @post.address = params[:address]
-  @post.date = params[:date]
-  @post.time = params[:time]
-  @post.imageUrl = params[:imageUrl]
+  @event = Event.new
+  @event.name = params[:name]
+  @event.description = params[:description]
+  @event.address = params[:address]
+  @event.date = params[:date]
+  @event.time = params[:time]
+  @event.imageUrl = params[:imageUrl]
+  @events.website = params[:website]
+  @events.phoneNumber = params[:phoneNumber]
 
-  puts @post
-  @post.save
+  @event.save
   {status: "Post saved"}.to_json
 end
 

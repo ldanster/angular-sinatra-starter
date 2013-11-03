@@ -1,4 +1,10 @@
-default:
-  host: 127.0.0.1
-  port: 8010
-  database: chi
+development:
+  sessions:
+    default:
+      database: chi
+      hosts:
+            - localhost:27017
+production:
+  sessions:
+    default:
+      uri: <%= ENV['MONGOHQ_URL'] %>

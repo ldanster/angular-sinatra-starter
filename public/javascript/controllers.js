@@ -44,18 +44,17 @@ angular.module('chiApp', ['ngRoute'])
       var containerList = [];
       var container;
       var modalId = 0;  
-      for (i=0; i < data.events.length; i++) {
+      for (i=0; i < data.length; i++) {
         if ( i % 4 == 0) {
           container = [];
           containerList.push(container);
         }
         container.push({
-          event: data.events[i],
+          event: data[i],
           modalId: modalId++
         });
       }
       $scope.eventsContainer = containerList;
-
       setTimeout(function() {
         $(document).foundation();
       }, 1);
@@ -67,11 +66,8 @@ angular.module('chiApp', ['ngRoute'])
   $(document).ready(function() {
     $http.get('/timeline/get', {'headers' : {'Accept' : 'application/json'}})
     .success(function(data) {
-      console.log(data);
       var timeline = new VMM.Timeline();
-
       var source = angular.toJson(data);
-      console.log(source);
       timeline.init(source);
     });
   })
@@ -80,7 +76,6 @@ angular.module('chiApp', ['ngRoute'])
 .controller('videoController', ['$scope', '$http', function($scope, $http) {
   $http.get('/video/get', {'headers' : {'Accept' : 'application/json'}})
   .success(function(data) {
-    console.log(data.videos);
     $scope.videos = data.videos;
   });
 }]);
