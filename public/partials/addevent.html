@@ -1,59 +1,90 @@
-<div id="container">
-	<div class="row">
-    <div class="large-5 columns">
-      <label>Event Name: </label>
-      <input type="text" ng-model="item.name"  />
-    </div>
-    <div class="large-3 columns left">
-      <label>Event Date: </label>
-      <input type="date" ng-model="item.date" />
-    </div>
-  </div>
+<div class="container">
+  <div class="row">
+    <div class="large-8 columns">
+      <form method="post" action="/events/add" enctype="multipart/form-data">
+        <fieldset>
+          <legend>Add Event</legend>
+            <div class="row">
 
-  <div class="row">
-    <div class="large-5 columns">
-      <label>Event descripton: </label>
-      <input type="text" ng-model="item.description" />
-    </div>
-    <div class="large-3 columns left">
-      <label>Event Time: </label>
-      <input type="time" ng-model="item.time" />
-    </div>
-  </div>
+              <div class="large-8 columns">
+                <label>Event Name: </label>
+                <input type="text" name="name"  />
+              </div>
 
-  <div class="row">
-    <div class="large-5 columns">
-      <label>Event Address: </label>
-      <input type="text" ng-model="item.address" />
-    </div>
-  </div>
- 
-  <div class="row">
-    <div class="large-5 columns">
-      <td>Phone Number: </td>
-      <td><input type="text" ng-model="item.phoneNumber" /></td>
-    </div>
-  </div>
+              <div class="large-4 columns left">
+                <label>Event Date: </label>
+                <input type="date" name="date" />
+              </div>
+            </div>
 
-  <div class="row">
-    <div class="large-5 columns">
-      <td>Website: </td>
-      <td><input type="text" ng-model="item.website" /></td>
-    </div>
-  </div>
+            <div class="row">
+              <div class="large-8 columns">
+                <label>Event descripton: </label>
+                <input type="text" name="description" />
+              </div>
+              <div class="large-4 columns left">
+                <label>Event Time: </label>
+                <input type="time" name="time" />
+              </div>
+            </div>
 
-<!--
-  This should be a button for uploading pics   
-  <div class="row">
-    <div class="large-5 columns">
-      <td>Image:</td>
-      <td><input type="text" ng-model="item.imageUrl" /></td>
-    </div>
-  </div> -->
+            <div class="row">
+              <div class="large-8 columns">
+                <label>Event Address: </label>
+                <input type="text" name="address" />
+              </div>
+            </div>
 
-  <div class="row">
-    <div class="large-5 columns">
-      <input type ="button" class="medium button"  value = "Submit"  ng-click="addEvent(item)"/>
+            <div class="row">
+              <div class="large-8 columns">
+                <label>Phone Number: </label>
+                <input type="text" name="phoneNumber" />
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="large-8 columns">
+                <label>Website: </label>
+                <input type="text" name="website" />
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="large-8 columns">
+                <label>Image:</label>
+                <input id="fileupload" type="file" name="image" class="small button" />
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="large-5 columns">
+                <input type ="submit" class="medium button"  value = "Submit" />
+              </div>
+            </div>
+
+        </fieldset>
+      </form>
     </div>
   </div>
 </div>
+
+<div id="container">
+	
+
+  
+
+  
+ 
+  
+
+  
+
+<!--
+  This should be a button for uploading pics
+-->
+  
+
+  
+</div>
+
+

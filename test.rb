@@ -25,15 +25,26 @@ get '/events' do
 end
 
 post '/events/add' do 
+
+  puts params
+
+  @filename = params['image'][:filename]
+  
+  if @filename
+    File.open("public/uploads/" + @filename, "w") do |file|  
+      file.write(params['image'][:tempfile].read)
+    end
+  end
+
   @event = Event.new
   @event.name = params[:name]
   @event.description = params[:description]
   @event.address = params[:address]
   @event.date = params[:date]
   @event.time = params[:time]
-  @event.imageUrl = params[:imageUrl]
-  @events.website = params[:website]
-  @events.phoneNumber = params[:phoneNumber]
+  @event.imageUrl = @filename
+  @event.website = params[:website]
+  @event.phoneNumber = params[:phoneNumber]
 
   @event.save
   {status: "Post saved"}.to_json
