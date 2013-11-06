@@ -19,6 +19,10 @@ configure do
   # end
 end
 
+get '/' do
+  redirect "/index.html#/events/show"
+end
+
 get '/events' do
   events = Event.all
   events.to_json
@@ -90,10 +94,6 @@ end
 post '/video/save' do 
   # @url = params[:videoUrl]
   # videos.push getYoutubeVideoIdfromUrl(@url)
-end
-
-get '/' do
-    puts params[]
 end
 
 def getYoutubeVideoIdfromUrl(url)
