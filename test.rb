@@ -51,7 +51,11 @@ post '/events/add' do
   @event.phoneNumber = params[:phoneNumber]
 
   @event.save
-  {status: "Post saved"}.to_json
+  redirect '/index.html#/events/add'
+end
+
+post '/events/delete' do
+
 end
 
 get '/timeline/get' do

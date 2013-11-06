@@ -57,7 +57,7 @@ angular.module('chiApp', ['ngRoute'])
       $scope.eventsContainer = containerList;
       setTimeout(function() {
         $(document).foundation();
-      }, 1);
+      }, 100);
     });
   });
 }])
