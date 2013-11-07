@@ -11,6 +11,10 @@ angular.module('chiApp', ['ngRoute'])
     templateUrl:'partials/addevent.html',
     controller:'eventsController'
   })
+  .when ('/events/view', {
+    templateUrl: 'partials/viewevents.html',
+    controller: 'eventsController'
+  })
   .when('/timeline/show', {
     templateUrl: 'partials/timeline.html',
     controller: 'timelineController'
@@ -38,7 +42,26 @@ angular.module('chiApp', ['ngRoute'])
     });
   };
 
-  $(document).ready(function() {
+  $scope.removeEvent = function(ev) {
+    console.log(ev);
+    $http({
+      url: '/events/delete/' + ev,
+      method: 'POST',
+      data: ev,
+    })
+    .success(function (data) {
+      $scope.getEventsForView();
+    });
+  };
+
+  $scope.getEventsForView = function() {
+    $http.get('/events', { 'headers' : {'Accept' : 'application/json'}})
+    .success(function(data) {
+      $scope.events = data;
+    });
+  };
+
+  $scope.getEventsForDisplay = function() {
     $http.get('/events', { 'headers' : {'Accept' : 'application/json'}})
     .success(function(data) {
       var containerList = [];
@@ -59,7 +82,7 @@ angular.module('chiApp', ['ngRoute'])
         $(document).foundation();
       }, 100);
     });
-  });
+  };
 }])
 
 .controller('timelineController', ['$scope', '$http', function($scope, $http) {

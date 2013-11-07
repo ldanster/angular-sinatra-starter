@@ -54,8 +54,10 @@ post '/events/add' do
   redirect '/index.html#/events/add'
 end
 
-post '/events/delete' do
-
+post '/events/delete/:id' do
+  @event = Event.find(id=params[:id])
+  puts @event.name
+  @event.delete
 end
 
 get '/timeline/get' do

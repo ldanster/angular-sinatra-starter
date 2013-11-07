@@ -1,5 +1,5 @@
 
-<ul id="main-feature" data-orbit>
+<ul id="main-feature" data-orbit ng-init="getEventsForDisplay()">
   <li class="container" ng-repeat="eventContainer in eventsContainer">
     <div class="row">
       <div class="large-6 columns panel" ng-repeat="event in eventContainer">
@@ -41,7 +41,7 @@
             </li>
             <li>
               <strong>Phone</strong>
-              <span>{{event.event.phone}}</span>
+              <span>{{event.event.phoneNumber}}</span>
             </li>
             <li>
               <strong>Website</strong>

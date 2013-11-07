@@ -7,7 +7,7 @@ class Event
   field :description, type:String
   field :address, type:String
   field :date, type:Date
-  field :time, type:Time
+  field :time, type:String
   field :imageUrl, type:String
   field :website, type:String
   field :phoneNumber, type:String
