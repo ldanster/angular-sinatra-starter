@@ -1,0 +1,21 @@
+<div class="container" ng-init="getVideosForDisplay()">
+  <div class="row">
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Address</th>
+          <th>Description</th>
+          <th>&nbsp;</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="video in videos">
+          <td>{{video.name}}</td>
+          <td>{{video.youtubeId}}</td>
+          <td>{{video.description}}</td>
+          <td><butt class="small button" ng-click="deleteVideo(video._id)">delete</button></td>
+      </tbody>
+    </table>
+  </div>
+</div>
